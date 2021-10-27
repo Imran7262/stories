@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>login</title>
+{% endblock title %}
+
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}" role="alert">
+    {{message}}
+</div>
+{% endfor %}
+
+<h1>Hello, world!</h1>
+
+<div class="container">
+    <form action="lagin" method="POST" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6 m-auto">
+            <div class="n">
+                <label for="inputEmail4" class="form-label">username</label>
+                <input type="text" class="form-control" id="inputEmail4" name="uname" placeholder="username">
+            </div>
+            <div class="col-md-12">
+                <label for="inputPassword4" class="form-label">password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="pass" placeholder="password">
+            </div>
+
+            <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-primary">sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}

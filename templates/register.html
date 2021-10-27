@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> register</title>
+{% endblock title %}
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}" role="alert">
+  {{message}}
+</div>
+{% endfor %}
+
+<h1 class="text-center">Hello, world!</h1>
+<div class="container">
+    <form action="register" method="POST" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">first name</label>
+            <input type="text" class="form-control" id="inputEmail4" name="fname">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">last name</label>
+            <input type="text" class="form-control" id="inputPassword4" name="lname">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">username</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="username" name="uname">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress2" class="form-label">email</label>
+            <input type="email" class="form-control" id="inputAddress2" placeholder="email" name="mail">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">password</label>
+            <input type="password" class="form-control" id="inputCity" name="pass">
+        </div>
+        <div class="col-md-6">
+            <label for="iinputCity" class="form-label">confirm </label>
+            <input type="password" class="form-control" id="iinputCity" name="pass2">
+        </div>
+
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">register</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

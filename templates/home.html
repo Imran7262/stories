@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>home</title>
+{% endblock title %}
+
+
+{% block body %}
+{% load static %}
+<div class="row">
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+        {{message}}
+    </div>
+
+    {% endfor %}
+    <div class="col-md-2">
+
+
+        <div class="list-group">
+            <a href="/" class="list-group-item list-group-item-action active" aria-current="true">
+                all category
+            </a>
+            {% for c in cat %}
+            <i class="fa fa-kit"> </i>
+            <strong> <a href="/cat/{{c.id}}" style="color:rgb(140, 140, 228);"
+                        class="list-group-item list-group-item-action bg-blue">{{c.title}}</a></strong>
+
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+    <div class="col-md-10">
+
+        <div>
+
+            {% for c in photo %}
+
+            <!--            <div class="m-1 card-column" style=" width:60px; height:auto; float:left;">-->
+            <!--                <img src="/media/{{c.img}}" class=" card-img-top" alt="...">-->
+            <div class="card-body mt-2" style="border:1px solid grey;">
+                <h2 class="card-title">{{c.title}}</h2>
+                <details>
+                    <summary class="card-title">{{c.title}}</summary>
+                    <p class="card-text ">{{c.disc}}</p>
+                    <br>
+                    <p class="card-text ">{{c.img}}</p>
+                </details>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

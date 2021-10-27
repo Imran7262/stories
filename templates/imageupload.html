@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block title %}
+{% endblock title %}
+{% block body %}
+
+<div class="container py-2">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+        {{message}}
+    </div>
+
+    {% endfor %}
+        <div class="col-md-6 bg-info text-white mx-auto">
+            <div class="text-center " style="border:2px solid black; margin:0 100px; text-size:22px; color:black;"><h2>-:POST:-</h2></div>
+            <form action="imageupload" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="m-2">
+                    {{image.as_p}}
+                </div>
+                <center class="m-2"><input class="btn btn-danger" type="submit" value="post"></center>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock body %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>aply story</title>
+{% endblock title%}
+
+{% block body%}
+
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}" role="alert">
+    {{message}}
+</div>
+{% endfor %}
+
+
+<div class="col-md-6 bg-info text-white mx-auto" style="margin-top:2px;">
+    <div class="text-center " style="border:2px solid black; margin:0 100px; text-size:22px; color:black;"><h2>
+        write a story:-</h2></div>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="m-2">
+            {{story.as_p}}
+        </div>
+        <center class="m-2"><input class="btn btn-danger" type="submit" value="post"></center>
+    </form>
+</div>
+
+{% endblock body %}

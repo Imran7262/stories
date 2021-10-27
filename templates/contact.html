@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+<title> contact</title>
+{% endblock title %}
+{% block body %}
+
+<div class="container">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+
+    <div class="row" style="margin:5px;">
+        <div class="col-md-6  py-5 text-center bg-secondary text-white">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div><h2>upload category :-</h2></div>
+                <br>
+                {{a}}
+                <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+        </div>
+
+
+    </div>
+</div>
+{% endblock body %}
